@@ -8,11 +8,10 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-            @user.save
             session[:user_id] = @user.id
             redirect_to mountains_path
         else
-            redirect_to root_path
+            redirect_to signup_path
         end
     end
 
