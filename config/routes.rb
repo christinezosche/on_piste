@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post "/logout" => "sessions#destroy"
   post "/users/:id" => "users#update"
 
+  get "/auth/:provider/callback" => "sessions#omniauth"
+
   resources :ratings, only: [:new, :create]
   resources :trips, only: [:new, :create, :edit, :update, :destroy]
   resources :mountains, only: [:show, :index]

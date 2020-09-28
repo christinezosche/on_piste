@@ -1,5 +1,7 @@
 class User < ApplicationRecord
+    
     has_secure_password
+
     validates :first_name, presence: true
     validates :email, presence: true
     validates :email, uniqueness: true
@@ -10,5 +12,11 @@ class User < ApplicationRecord
     has_many :ratings
     has_many :mountains, through: :trips
     has_many :trails, through: :ratings
+
+    def self.from_omniauth(auth)
+        find_or_create_by(email: auth[:info][:email], first_name: auth[:info][:first_name]) do |user|
+            user.password = SecureRandom.hex(15)
+        end
+    end
 
 end
