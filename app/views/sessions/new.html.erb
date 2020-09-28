@@ -1,5 +1,6 @@
+
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-    <input name=email id=email>
-    <input name=password id=password>
-    <input type=submit value='Sign In'>
+    Email: <%= text_field_tag "email" %><br>
+    Password: <%= text_field_tag "password" %>
+    <%= submit_tag "Sign In" %>
 <% end %>
