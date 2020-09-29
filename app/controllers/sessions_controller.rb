@@ -1,20 +1,16 @@
 class SessionsController < ApplicationController
 
     def new
-        @users = User.all
     end
 
     def create
-        @user = User.find_by(email: params[:email])
-        if @user
-            if @user.authenticate(params[:password])
-                session[:user_id] = @user.id
-                redirect_to mountains_path
-            else
-                render :new
-            end
+        @user = User.find_by(email: params[:session][:email])
+        if @user && @user.authenticate(params[:session][:password])
+            session[:user_id] = @user.id
+            redirect_to mountains_path
         else
-            render :new
+            flash[:alert] = 'Invalid email/password combination'
+            render 'new'
         end
     end
 

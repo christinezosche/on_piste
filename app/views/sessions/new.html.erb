@@ -1,8 +1,18 @@
+<% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+<% end %>
 
-<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-    Email: <%= text_field_tag "email" %><br>
-    Password: <%= password_field_tag "password" %>
-    <%= submit_tag "Sign In" %>
+<%= form_for(:session, url: login_path) do |f| %>
+
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.submit "Log In" %>
 <% end %>
 
 <%= button_to "Log In with Google", '/auth/google_oauth2' %>
+
+<p>New user? <%= link_to "Sign up now!", signup_path %></p>
