@@ -4,10 +4,12 @@ class TripsController < ApplicationController
         @trip = Trip.new
     end
 
+    def edit
+        @trip = Trip.find(params[:id])
+    end
+
     def create
-        mountain = Mountain.find_by(name: params[:trip][:mountain])
-        @trip = Trip.new(date: params[:trip][:date], mountain: mountain)
-        @trip.user = current_user
+        @trip = current_user.trips.create(trip_params)
         if @trip.valid?
             @trip.save
             redirect_to mountains_path
@@ -16,9 +18,13 @@ class TripsController < ApplicationController
         end
     end
 
+    def update
+
+    end
+
     private
 
     def trip_params
-        params.require(:trip).permit(:date, :mountain)
+        params.require(:trip).permit(:date, :mountain_id)
     end
 end
