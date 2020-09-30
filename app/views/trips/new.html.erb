@@ -18,6 +18,6 @@
   <%= f.label :departure_date %>
   <%= f.date_field :date %>
   <%= f.label :mountain %>
-  <%= f.collection_select :mountain, Mountain.all, :id, :name, include_blank: true %>
+  <%= f.collection_select :mountain, Mountain.all, :name, :name, include_blank: true %>
   <%= f.submit value='Add Trip'%>
 <% end %>

@@ -5,7 +5,8 @@ class TripsController < ApplicationController
     end
 
     def create
-        @trip = Trip.new(trip_params)
+        mountain = Mountain.find_by(name: params[:trip][:mountain])
+        @trip = Trip.new(date: params[:trip][:date], mountain: mountain)
         @trip.user = current_user
         if @trip.valid?
             @trip.save
