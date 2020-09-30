@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_213322) do
+ActiveRecord::Schema.define(version: 2020_09_27_213300) do
 
   create_table "mountains", force: :cascade do |t|
     t.string "name"
@@ -19,15 +19,10 @@ ActiveRecord::Schema.define(version: 2020_09_27_213322) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "ratings", force: :cascade do |t|
-    t.integer "value"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "trails", force: :cascade do |t|
     t.string "name"
     t.string "difficulty"
+    t.integer "rating"
     t.integer "mountain_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -45,7 +40,6 @@ ActiveRecord::Schema.define(version: 2020_09_27_213322) do
     t.string "first_name"
     t.string "email"
     t.string "password_digest"
-    t.integer "experience", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
