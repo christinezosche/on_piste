@@ -1,3 +1,12 @@
+<% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+<% end %>
+
 <h1>Welcome, <%=current_user.first_name%></h1>
+
+
+<%= link_to "Log a New Trip", new_trip_path %>
+
+
 <%= button_to "Home", mountains_path %>
 <%= button_to "Log Out", logout_path %>
