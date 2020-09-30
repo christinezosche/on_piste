@@ -19,7 +19,14 @@ class TripsController < ApplicationController
     end
 
     def update
-
+        @trip = Trip.find(params[:id])
+        @trip.update(trip_params)
+        if @trip.valid?
+            @trip.save
+            redirect_to mountains_path
+        else
+            render :new
+        end
     end
 
     private
