@@ -17,7 +17,6 @@
 <%= form_for @trip do |f| %>
   <%= f.label :departure_date %>
   <%= f.date_field :date %>
-  <%= f.label :mountain %>
-  <%= f.collection_select :mountain_id, Mountain.all, :id, :name, include_blank: true %>
+  <%= mountain_id_field(@trip) %>
   <%= f.submit value='Submit'%>
 <% end %>

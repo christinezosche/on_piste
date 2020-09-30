@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :trips, only: [:new, :create, :edit, :update, :destroy]
 
   resources :mountains, only: [:show, :index] do
-    resources :trips, only: [:new, :create, :edit, :update, :destroy]
+    resources :trips, only: [:new]
   end
 
   resources :users, only: [:new, :create, :edit, :show] do

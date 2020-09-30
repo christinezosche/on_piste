@@ -14,7 +14,11 @@ class TripsController < ApplicationController
     end
 
     def new
-        @trip = Trip.new
+        if params[:mountain_id] && !Mountain.exists?(params[:mountain_id])
+            redirect_to mountains_path, alert: "Mountain not found."
+        else
+            @trip = Trip.new(mountain_id: params[:mountain_id])
+        end
     end
 
     def edit
