@@ -9,9 +9,8 @@ class User < ApplicationRecord
 
 
     has_many :trips
-    has_many :ratings
     has_many :mountains, through: :trips
-    has_many :trails, through: :ratings
+    has_many :trails, through: :mountains
 
     def self.from_omniauth(auth)
         find_or_create_by(email: auth[:info][:email], first_name: auth[:info][:first_name]) do |user|
