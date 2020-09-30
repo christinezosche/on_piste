@@ -1,3 +1,12 @@
-<h1>Edit Trip</h1>
+
 <%= render 'form' %>
+<h1>Edit Trip</h1>
+
+<%= form_for @trip do |f| %>
+    <%= f.label :departure_date %>
+    <%= f.date_field :date %>
+    <%= f.collection_select :mountain_id, Mountain.all, :id, :name, include_blank: "Select a Mountain" %>
+    <%= f.submit value='Submit'%>
+<% end %>
+
 <%= button_to "Delete Trip", { action: "destroy", id: @trip.id }, method: :delete, data: { confirm: "Are you sure?" } %>

@@ -1,15 +1,13 @@
 class TripsController < ApplicationController
+    before_action :require_login
+
 
     def index
-        if params[:user_id]
-            if User.find_by(id: params[:user_id])
+        if verify_user
             @trips = User.find(params[:user_id]).trips
-            else
-            flash[:alert] = "User not found."
-            render :template => "mountains/index"
-            end
         else
-            redirect_to mountains_path
+            flash[:alert] = "You do not have permission to view this page."
+            render :template => "mountains/index"
         end
     end
 
@@ -23,6 +21,10 @@ class TripsController < ApplicationController
 
     def edit
         @trip = Trip.find(params[:id])
+        if @trip.user_id != current_user.id
+            flash[:alert] = "You do not have permission to view this page."
+                render :template => "mountains/index"
+        end
     end
 
     def create
@@ -55,6 +57,6 @@ class TripsController < ApplicationController
     private
 
     def trip_params
-        params.require(:trip).permit(:date, :mountain_id)
+        params.require(:trip).permit(:date, :mountain_id, :user_id)
     end
 end

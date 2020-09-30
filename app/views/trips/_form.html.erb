@@ -13,10 +13,3 @@
   </ul>
 </div>
 <% end %>
-
-<%= form_for @trip do |f| %>
-  <%= f.label :departure_date %>
-  <%= f.date_field :date %>
-  <%= mountain_id_field(@trip) %>
-  <%= f.submit value='Submit'%>
-<% end %>

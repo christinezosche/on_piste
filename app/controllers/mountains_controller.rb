@@ -1,4 +1,5 @@
 class MountainsController < ApplicationController
+    before_action :require_login
 
     def index
         @user = User.find_by(id: session[:user_id])

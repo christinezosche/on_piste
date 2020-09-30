@@ -1,2 +1,8 @@
-<h1>Log a Trip</h1>
 <%= render 'form' %>
+<h1>Log a Trip</h1>
+<%= form_for @trip do |f| %>
+    <%= f.label :departure_date %>
+    <%= f.date_field :date %>
+    <%= mountain_id_field(@trip) %>
+    <%= f.submit value='Submit'%>
+  <% end %>

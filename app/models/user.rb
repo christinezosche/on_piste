@@ -17,4 +17,8 @@ class User < ApplicationRecord
         end
     end
 
+    def number_of_visits
+        self.trips.count
+    end
+
 end
