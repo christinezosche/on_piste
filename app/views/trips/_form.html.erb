@@ -19,5 +19,5 @@
   <%= f.date_field :date %>
   <%= f.label :mountain %>
   <%= f.collection_select :mountain_id, Mountain.all, :id, :name, include_blank: true %>
-  <%= f.submit value='Add Trip'%>
+  <%= f.submit value='Submit'%>
 <% end %>

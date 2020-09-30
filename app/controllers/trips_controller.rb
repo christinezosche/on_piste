@@ -25,8 +25,14 @@ class TripsController < ApplicationController
             @trip.save
             redirect_to mountains_path
         else
-            render :new
+            render :edit
         end
+    end
+
+    def destroy
+        @trip = Trip.find(params[:id])
+        @trip.destroy
+        redirect_to mountains_path
     end
 
     private
