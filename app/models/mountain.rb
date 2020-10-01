@@ -6,11 +6,13 @@ class Mountain < ApplicationRecord
     def mountain_rating
         trail_ratings = []
         self.trails.each do |trail|
-            trail_ratings << trail.trail_rating
+            trail_ratings << trail.trail_rating unless trail.trail_rating == 0.0
         end
-            numerator = trail_ratings.sum
-            denominator = trail_ratings.size
-            numerator.to_f / denominator.to_f
+        if trail_ratings.empty?
+            return 0.0
+        else
+            trail_ratings.sum.to_f / trail_ratings.size.to_f
+        end
     end
 
     def number_of_visits

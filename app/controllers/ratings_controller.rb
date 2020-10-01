@@ -9,7 +9,10 @@ class RatingsController < ApplicationController
         @trail = Trail.find_by(id: params[:rating][:trail_id])
         @mountain = @trail.mountain
         @rating = Rating.new(rating_params)
-        if @rating.valid?
+        if Rating.find_by(trail_id: params[:rating][:trail_id], user_id: params[:rating][:user_id])
+            flash[:alert] = "You have already rated this trail."
+            redirect_to mountain_path(@mountain)
+        elsif @rating.valid?
             @rating.save
             redirect_to mountain_path(@mountain)
         else
@@ -21,6 +24,6 @@ class RatingsController < ApplicationController
     private
 
     def rating_params
-        params.require(:rating).permit(:value, :trail_id)
+        params.require(:rating).permit(:value, :trail_id, :user_id)
     end
 end

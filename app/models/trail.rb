@@ -10,9 +10,8 @@ class Trail < ApplicationRecord
             values = self.ratings.map do |rating|
                 rating.value
             end
-            numerator = values.sum
-            denominator = values.size
-            numerator.to_f / denominator.to_f
+            result = values.sum.to_f / values.size.to_f
+            result.round(2)
         end
     end
 

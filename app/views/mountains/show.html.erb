@@ -4,7 +4,7 @@
 
 <%= link_to "Log a Trip to #{@mountain.name}", new_mountain_trip_path(@mountain) %>
 <br>
-Mountain rating: <%= @mountain.mountain_rating %>
+Mountain rating: <%= @mountain.mountain_rating.round(2) %>
 <br>
 <% @mountain.trails.each do |t| %>
     Name: <%= t.name %>
@@ -15,7 +15,10 @@ Mountain rating: <%= @mountain.mountain_rating %>
     <%= form_for Rating.new do |f| %>
         <%= f.label "Rate this Trail" %>
         <%= f.hidden_field :trail_id, value: t.id %>
-        <%= f.select :value, [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]], include_blank: true %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <% (1..5).each do |number| %>
+        <%= f.radio_button :value, number %>
+        <% end %>
         <%= f.submit "Submit" %>
     <% end %>
     <% end %>

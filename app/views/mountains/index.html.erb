@@ -36,7 +36,7 @@
     <% @top_trails[0..4].each do |t| %>
       <div class="row">
       <div class="col-7">
-      <%= t.name %>
+      <%= link_to "#{t.name}", mountain_path(t.mountain) %>
       </div>
       <div class="col-3">
       &#9734 <%= t.trail_rating %>
