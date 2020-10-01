@@ -2,7 +2,18 @@
     <div class="alert"><%= flash[:alert] %></div>
 <% end %>
 
-<%= link_to "Log a Trip to #{@mountain.name}", new_mountain_trip_path(@mountain) %>
+<div class="container features">
+  <div class="row">
+  <h1><%= "#{@mountain.name}, #{@mountain.country}" %></h1>
+  </div>
+  <br>
+  <div class = "row">
+  <%= link_to "Log a Trip to #{@mountain.name}", new_mountain_trip_path(@mountain) %>
+  </div>
+  <div class="row">
+    <div class="col-8">
+    <h3 class="feature-title">Top Trails</h3>
+
 <br>
 Mountain rating: &#9734 <%= @mountain.mountain_rating %>
 <br>
