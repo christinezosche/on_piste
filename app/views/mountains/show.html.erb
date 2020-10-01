@@ -1,1 +1,22 @@
+<% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+<% end %>
+
 <%= link_to "Log a Trip to #{@mountain.name}", new_mountain_trip_path(@mountain) %>
+<br>
+
+<% @mountain.trails.each do |t| %>
+    <%= t.name %>
+    <%= t.difficulty %>
+    <%= t.trail_rating %>
+
+    <% if current_user.mountains.include?(@mountain) %>
+    <%= form_for Rating.new do |f| %>
+        <%= f.label "Rate this Trail" %>
+        <%= f.hidden_field :trail_id, value: t.id %>
+        <%= f.select :value, [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]], include_blank: true %>
+        <%= f.submit "Submit" %>
+    <% end %>
+    <% end %>
+
+<% end %>

@@ -21,4 +21,7 @@ class User < ApplicationRecord
         self.trips.count
     end
 
+        #User.all.sort {|user| user.number_of_visits}.reverse
+
+
 end

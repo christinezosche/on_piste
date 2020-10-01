@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :ratings
   root "application#index"
 
   get "/login" => "sessions#new"
