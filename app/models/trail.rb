@@ -4,12 +4,15 @@ class Trail < ApplicationRecord
     has_many :ratings
 
     def trail_rating
-        if !self.ratings.empty?
-            numerator = self.ratings.values.sum
-            denominator = self.ratings.values.size
-            numerator.to_f / denominator.to_f
-        else
+        if self.ratings.empty?
             return 0.0
+        else
+            values = self.ratings.map do |rating|
+                rating.value
+            end
+            numerator = values.sum
+            denominator = values.size
+            numerator.to_f / denominator.to_f
         end
     end
 

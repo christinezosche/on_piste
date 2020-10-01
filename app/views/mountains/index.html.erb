@@ -11,32 +11,61 @@
     <div class="col-8">
     <h3 class="feature-title">Top Mountains</h3>
     <% @mountains.each do |m| %>
-    <div class="row">
-    <div class="col-2">
-    <img src="images/column-1.jpg"></td>
+    <div class="row top-buffer">
+    <div class="col-2 my-auto">
+    <%= image_tag("#{m.id}.jpg", style: 'margin: auto; width: 100%; border: 1px black') %>
     </div>
-    <div class="col-5">
+    <div class="col-4 my-auto">
     <%= link_to m.name, mountain_path(m) %>
     </div>
-    <div class="col-2">
+    <div class="col-3 my-auto">
     <%= m.country %>
+    </div>
+    <div class="col-3 my-auto">
+    &#9734 <%= m.mountain_rating %>
+    
+    
     </div>
     </div>
     <% end %>
-
-        ------ADD MOUNTAINS TABLE HERE-----
     </div>
     <div class="col-4">
-            -----ADD TOP TRAILS TABLE HERE-----
-            -----ADD TOP USER TABLE HERE-----
+    <div class="row">
+    <h3 class="feature-title">Top Trails</h3>
+    </div>
+    <% @top_trails[0..4].each do |t| %>
+      <div class="row">
+      <div class="col-7">
+      <%= t.name %>
+      </div>
+      <div class="col-3">
+      &#9734 <%= t.trail_rating %>
+      </div>
+      </div>
+    <% end %>
+
+   <br>
+   <br>
+   <br>
+    <div class="row">
+    <h3 class="feature-title">Top Users</h3>
+    </div>
+      <% @top_users[0..4].each do |u| %>
+        <div class="row">
+        <div class="col-7">
+        <%= u.first_name %>
+        </div> 
+        <div class="col-3">
+        <%= u.trips.count %> trips
+        </div>
+        </div>
+      <% end %>
+    
     </div>
   </div>
 </div>
 
 
-<% @mountains.each do |m| %>
-    <%= link_to m.name, mountain_path(m) %>
-<% end %>
 
 
 

@@ -100,3 +100,4 @@ body {
   .alert {
     color: rgb(148, 21, 21);
   }
+  .top-buffer { margin-top:20px; }
