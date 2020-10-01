@@ -4,12 +4,12 @@
 
 <%= link_to "Log a Trip to #{@mountain.name}", new_mountain_trip_path(@mountain) %>
 <br>
-Mountain rating: <%= @mountain.mountain_rating.round(2) %>
+Mountain rating: &#9734 <%= @mountain.mountain_rating %>
 <br>
 <% @mountain.trails.each do |t| %>
     Name: <%= t.name %>
     Difficulty: <%= t.difficulty %>
-    Average User Rating: <%= t.trail_rating %>
+    Average User Rating: &#9734 <%= t.trail_rating %>
 
     <% if current_user.mountains.include?(@mountain) %>
     <%= form_for Rating.new do |f| %>

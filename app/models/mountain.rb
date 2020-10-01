@@ -11,7 +11,8 @@ class Mountain < ApplicationRecord
         if trail_ratings.empty?
             return 0.0
         else
-            trail_ratings.sum.to_f / trail_ratings.size.to_f
+            result = trail_ratings.sum.to_f / trail_ratings.size.to_f
+            result.round(2)
         end
     end
 
@@ -22,10 +23,6 @@ class Mountain < ApplicationRecord
     def self.sort_by_country
         order(country: :asc)
     end
-
-    #Mountain.all.sort {|mountain| mountain.mountain_rating}.reverse
-    
-    #Mountain.all.sort {|mountain| mountain.number_of_visits}.reverse
     
 
 end

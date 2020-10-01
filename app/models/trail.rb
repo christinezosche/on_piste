@@ -15,6 +15,5 @@ class Trail < ApplicationRecord
         end
     end
 
-        #Trail.all.sort {|trail| trail.trail_rating}.reverse
 
 end

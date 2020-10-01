@@ -22,7 +22,7 @@
     <%= m.country %>
     </div>
     <div class="col-3 my-auto">
-    &#9734 <%= m.mountain_rating.round(2) %>
+    &#9734 <%= m.mountain_rating %>
     
     
     </div>
@@ -39,7 +39,7 @@
       <%= link_to "#{t.name}", mountain_path(t.mountain) %>
       </div>
       <div class="col-3">
-      &#9734 <%= t.trail_rating.round(2) %>
+      &#9734 <%= t.trail_rating %>
       </div>
       </div>
     <% end %>
