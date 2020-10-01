@@ -2,9 +2,45 @@
     <div class="alert"><%= flash[:alert] %></div>
 <% end %>
 
-<h1>Welcome, <%=current_user.first_name%></h1>
+<div class="container features">
+  <div class="row">
+  <h1>Welcome, <%=current_user.first_name%></h1>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-8">
+    <h3 class="feature-title">Top Mountains</h3>
+    <% @mountains.each do |m| %>
+    <div class="row">
+    <div class="col-2">
+    <img src="images/column-1.jpg"></td>
+    </div>
+    <div class="col-5">
+    <%= link_to m.name, mountain_path(m) %>
+    </div>
+    <div class="col-2">
+    <%= m.country %>
+    </div>
+    </div>
+    <% end %>
+
+        ------ADD MOUNTAINS TABLE HERE-----
+    </div>
+    <div class="col-4">
+            -----ADD TOP TRAILS TABLE HERE-----
+            -----ADD TOP USER TABLE HERE-----
+    </div>
+  </div>
+</div>
 
 
-<%= link_to "Log a New Trip", new_trip_path %>
+<% @mountains.each do |m| %>
+    <%= link_to m.name, mountain_path(m) %>
+<% end %>
+
+
+
+
+
 
 

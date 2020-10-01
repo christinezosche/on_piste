@@ -3,13 +3,23 @@ body {
     margin: 0;
     background: #d8ebf7;
   }
+  
+  body { 
+    background-image:
+    url('https://images.pexels.com/photos/2333866/pexels-photo-2333866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: rgb(17, 155, 247) }
+
+
   /*--- navigation bar ---*/
   .navbar {
-    background:#44bcf3;
+    background: rgb(125, 175, 204);
   }
   .nav-link,
   .navbar-brand {
-    color: #fff;
+    color: rgb(255, 255, 255);
     cursor: pointer;
   }
   .nav-link {
@@ -27,22 +37,66 @@ body {
     text-align: center;
   }
   .description h1 {
-    color: #6ab446;
+    color: rgb(0, 88, 129);
   }
   .description p {
-    color: #fff;
+    color: black;
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+  .description a {
+    color: white;
     font-size: 1.3rem;
     line-height: 1.5;
   }
 
-  .description button {
-    border:1px solid #6ab446;
-    background:#6ab446;
-    border-radius: 0;
-    color:#fff;
+
+  .features {
+    margin: 4em auto;
+    padding: 1em;
+    position: relative;
   }
-  .description button:hover {
-    border:1px solid #fff;
-    background:#fff;
-    color:#000;
+  .feature-title {
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .features img {
+    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 16px;
+  }
+
+  .features .form-control,
+.features input {
+    border-radius: 0;
+}
+.features .btn {
+  background-color: #589b37;
+  border: 1px solid #589b37;
+  color: #fff;
+  margin-top: 20px;
+}
+.features .btn:hover {
+  background-color: #333;
+  border: 1px solid #333;
+}
+.features h1 {
+    color: rgb(0, 88, 129);
+  }
+  .features p {
+    color: black;
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+  .features a {
+    color: rgb(0, 88, 129);
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+  .alert {
+    color: rgb(148, 21, 21);
   }
