@@ -1,6 +1,9 @@
 <% if flash[:alert] %>
     <div class="alert"><%= flash[:alert] %></div>
 <% end %>
+<div class="description">
+<h1>On Piste</h1>
+<p>Your ski travel resource.</p>
 
 <%= form_for(:session, url: login_path) do |f| %>
 
@@ -15,3 +18,4 @@
 
 <%= button_to "Log In with Google", '/auth/google_oauth2' %>
 
+</div>
