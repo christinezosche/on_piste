@@ -21,7 +21,20 @@ class User < ApplicationRecord
         self.trips.count
     end
 
-        #User.all.sort {|user| user.number_of_visits}.reverse
+    def self.sort_by_top_users
+        self.all.sort_by {|user| user.trips.count}.reverse
+    end
 
+    def self.top_5
+        self.sort_by_top_users[0..4]
+    end
+
+    def top_5_trips
+        self.trips.sort_by_date_descending[0..4]
+    end
+
+    def has_visited?(mountain)
+        self.mountains.include?(mountain)
+    end
 
 end

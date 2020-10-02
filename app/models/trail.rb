@@ -15,5 +15,13 @@ class Trail < ApplicationRecord
         end
     end
 
+    def self.sort_by_rating
+        self.all.sort_by {|trail| trail.trail_rating}.reverse
+    end
+
+    def self.top_5
+        self.sort_by_rating[0..4] 
+    end
+
 
 end

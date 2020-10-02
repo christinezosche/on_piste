@@ -16,13 +16,8 @@ class Mountain < ApplicationRecord
         end
     end
 
-    def number_of_visits
-        self.trips.count
+    def self.sort_by_rating
+        self.all.sort_by {|mountain| mountain.mountain_rating}.reverse
     end
-
-    def self.sort_by_country
-        order(country: :asc)
-    end
-    
 
 end

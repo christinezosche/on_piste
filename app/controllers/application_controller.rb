@@ -17,10 +17,6 @@ class ApplicationController < ActionController::Base
         return head(:forbidden) unless session.include? :user_id
     end
 
-    def verify_user
-        User.find_by(id: params[:user_id]) == User.find_by(id: session[:user_id])
-    end
-
     def logged_in?
         session[:user_id]
     end

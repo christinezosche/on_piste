@@ -19,15 +19,22 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = current_user
-        trips = @user.trips.all.sort_by {|trip| trip.date}.reverse
-        @trips = trips[0..4]
-        
+        if verify_user
+            @user = User.find(params[:id])
+            @trips = @user.top_5_trips
+        else
+            flash[:alert] = "You do not have permission to view this page."
+            redirect_to mountains_path
+        end
     end
 
     private
 
     def user_params
         params.require(:user).permit(:first_name, :email, :password, :password_confirmation)
+    end
+
+    def verify_user
+        User.find_by(id: params[:id]) == current_user
     end
 end

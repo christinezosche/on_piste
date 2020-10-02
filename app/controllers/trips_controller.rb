@@ -4,10 +4,10 @@ class TripsController < ApplicationController
 
     def index
         if verify_user
-            @trips = User.find(params[:user_id]).trips.all.sort_by {|trip| trip.date}.reverse
+            @trips = User.find(params[:user_id]).trips.sort_by_date_descending
         else
             flash[:alert] = "You do not have permission to view this page."
-            render :template => "mountains/index"
+            redirect_to mountains_path
         end
     end
 
@@ -23,7 +23,7 @@ class TripsController < ApplicationController
         @trip = Trip.find(params[:id])
         if @trip.user_id != current_user.id
             flash[:alert] = "You do not have permission to view this page."
-                render :template => "mountains/index"
+                redirect_to mountains_path
         end
     end
 
@@ -58,5 +58,9 @@ class TripsController < ApplicationController
 
     def trip_params
         params.require(:trip).permit(:date, :mountain_id, :user_id)
+    end
+
+    def verify_user
+        User.find_by(id: params[:user_id]) == current_user
     end
 end
