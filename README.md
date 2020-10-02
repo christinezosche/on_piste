@@ -1,24 +1,19 @@
-# README
+# On Piste
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Rails app allows users to log trips to the top ski mountains in the world, rate trails, and view details on each mountain.
 
-Things you may want to cover:
+## Installation and Usage
 
-* Ruby version
+Fork and clone this repo. Run `bundle install` to install required gems. Run `rails db:migrate` to migrate tables, then run `rails db:seed` to seed the starting data. Then, run `rails s` and enter localport:3000 in your browser to get started. 
 
-* System dependencies
+## Development
 
-* Configuration
+Run `rails c` to experiment with the code.
 
-* Database creation
+## Contributing
+Bug reports and pull requests are welcome on [GitHub](https://github.com/christinezosche/rails_project). 
+    
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+This code is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
