@@ -3,25 +3,40 @@
 <% end %>
 
 <div class="container features">
-  <div class="row">
-  <h1><%= "#{@mountain.name}, #{@mountain.country}" %></h1>
+
+<div class="row">
+    <div class="col-4">
+    <%= image_tag("#{@mountain.id}.jpg", style: 'margin: auto; width: 100%; border: 1px black') %>
+    </div>
+    <div class="col-4 my-auto">
+    <h1><%= "#{@mountain.name}" %>, </h1>
+    <h2><%= "#{@mountain.country}" %></h2>
+    <p>&#9734 <%= @mountain.mountain_rating %></h4>
+    </div>
+    <div class="col-4 my-auto">
+    <%if current_user.mountains.include?(@mountain) %>
+    <%= link_to "Log Another Trip to #{@mountain.name}", new_mountain_trip_path(@mountain) %>
+    <%else%>
+    To rate the trails at <%="#{@mountain.name}"%>,<br>
+    <%= link_to "Log a Trip", new_mountain_trip_path(@mountain) %>
+    <%end%>
+    </div>
   </div>
-  <br>
-  <div class = "row">
-  <%= link_to "Log a Trip to #{@mountain.name}", new_mountain_trip_path(@mountain) %>
-  </div>
+<br>
+
   <div class="row">
-    <div class="col-8">
+    <div class="col-12">
     <h3 class="feature-title">Top Trails</h3>
 
-<br>
-Mountain rating: &#9734 <%= @mountain.mountain_rating %>
-<br>
 <% @mountain.trails.each do |t| %>
-    Name: <%= t.name %>
-    Difficulty: <%= t.difficulty %>
-    Average User Rating: &#9734 <%= t.trail_rating %>
-
+    <div class="row">
+    <div class="col-3">
+    <strong><%= t.name %></strong> &#9734 <%= t.trail_rating %>
+    </div>
+    <div class="col-3">
+    <strong>Level:</strong> <%= t.difficulty %>
+    </div>
+    <div class="col-4">
     <% if current_user.mountains.include?(@mountain) %>
     <%= form_for Rating.new do |f| %>
         <%= f.label "Rate this Trail" %>
@@ -33,5 +48,9 @@ Mountain rating: &#9734 <%= @mountain.mountain_rating %>
         <%= f.submit "Submit" %>
     <% end %>
     <% end %>
-
+    </div>
+    </div>
+    <br>
 <% end %>
+</div>
+</div>
