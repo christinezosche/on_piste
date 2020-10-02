@@ -19,6 +19,8 @@ class UsersController < ApplicationController
     end
 
     def show
+        @user = current_user
+        @trips = @user.trips.all.sort_by {|trip| trip.date}.reverse
         
     end
 
