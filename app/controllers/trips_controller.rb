@@ -4,7 +4,7 @@ class TripsController < ApplicationController
 
     def index
         if verify_user
-            @trips = User.find(params[:user_id]).trips
+            @trips = User.find(params[:user_id]).trips.all.sort_by {|trip| trip.date}.reverse
         else
             flash[:alert] = "You do not have permission to view this page."
             render :template => "mountains/index"
@@ -13,7 +13,7 @@ class TripsController < ApplicationController
 
     def new
         if params[:mountain_id] && !Mountain.exists?(params[:mountain_id])
-            redirect_to mountains_path, alert: "Mountain not found."
+            redirect_to mountains_path
         else
             @trip = Trip.new(mountain_id: params[:mountain_id])
         end
@@ -42,7 +42,7 @@ class TripsController < ApplicationController
         @trip.update(trip_params)
         if @trip.valid?
             @trip.save
-            redirect_to mountains_path
+            redirect_to user_path(current_user)
         else
             render :edit
         end

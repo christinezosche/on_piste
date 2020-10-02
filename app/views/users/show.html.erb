@@ -14,10 +14,10 @@
         <div class="col-3">
         <strong><%= t.date.to_time.strftime('%B %e, %Y') %></strong>
         </div>
-        <div class="col-4">
-        <%= t.mountain.name %>, <%= t.mountain.country %>
+        <div class="col-7">
+        <%= link_to t.mountain.name, mountain_path(t.mountain) %>, <%= t.mountain.country %>
         </div>
-        <div class="col-4">
+        <div class="col-2">
         <%= link_to "Modify", edit_trip_path(t) %>
         </div>
         </div>
@@ -27,6 +27,6 @@
 </div>
 <div class="row">
     <div class="col-12">
-    <%= link_to "All Trips", user_trips_path(current_user.id) %>
+    <strong><%= link_to "All Trips", user_trips_path(current_user.id) %></strong>
     </div>
 </div>

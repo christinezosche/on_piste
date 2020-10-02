@@ -70,20 +70,6 @@ body {
     margin-bottom: 16px;
   }
 
-  .features .form-control,
-.features input {
-    border-radius: 0;
-}
-.features .btn {
-  background-color: #589b37;
-  border: 1px solid #589b37;
-  color: #fff;
-  margin-top: 20px;
-}
-.features .btn:hover {
-  background-color: #333;
-  border: 1px solid #333;
-}
 .features h1 {
     color: rgb(0, 88, 129);
   }
@@ -94,10 +80,43 @@ body {
   }
   .features a {
     color: rgb(0, 88, 129);
-    font-size: 1.3rem;
+    font-size: 1.0rem;
     line-height: 1.5;
   }
   .alert {
     color: rgb(148, 21, 21);
   }
   .top-buffer { margin-top:20px; }
+
+  .main-features {
+    margin: 4em auto;
+    padding: 1em;
+    position: relative;
+  }
+  .main-feature-title {
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .main-features img {
+    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 16px;
+  }
+
+.main-features h1 {
+    color: rgb(0, 88, 129);
+  }
+  .main-features p {
+    color: black;
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+  .main-features a {
+    color: rgb(0, 88, 129);
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }

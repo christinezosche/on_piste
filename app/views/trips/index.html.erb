@@ -1,5 +1,27 @@
-<h1><%= "#{current_user.first_name}'s" %> Trips</h1>
+<div class="container features">
+<div class="row">
+    <div class="col-12">
+    <h1><%= "#{current_user.first_name}"%>'s Trips</h1>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-12">
+    <h3 class="feature-title">All Trips</h3>
 
-<% @trips.each do |trip| %>
-    <%= trip.mountain.name %>
-<% end %>
+    <% @trips.each do |t| %>
+        <div class="row">
+        <div class="col-3">
+        <strong><%= t.date.to_time.strftime('%B %e, %Y') %></strong>
+        </div>
+        <div class="col-4">
+        <%= link_to t.mountain.name, mountain_path(t.mountain) %>, <%= t.mountain.country %>
+        </div>
+        <div class="col-4">
+        <%= link_to "Modify", edit_trip_path(t) %>
+        </div>
+        </div>
+        <br>
+    <% end %>
+    </div>
+</div>
