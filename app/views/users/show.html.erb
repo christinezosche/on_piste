@@ -8,21 +8,7 @@
 <div class="row">
     <div class="col-12">
     <h3 class="feature-title">Recent Trips</h3>
-
-    <% @trips[0..4].each do |t| %>
-        <div class="row">
-        <div class="col-3">
-        <strong><%= t.date.to_time.strftime('%B %e, %Y') %></strong>
-        </div>
-        <div class="col-7">
-        <%= link_to t.mountain.name, mountain_path(t.mountain) %>, <%= t.mountain.country %>
-        </div>
-        <div class="col-2">
-        <%= link_to "Modify", edit_trip_path(t) %>
-        </div>
-        </div>
-        <br>
-    <% end %>
+        <%= render 'trips' %>
     </div>
 </div>
 <div class="row">

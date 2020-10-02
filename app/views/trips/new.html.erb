@@ -1,5 +1,7 @@
 <%= render 'form' %>
+
 <div class="description">
+
 <h1>Log a Trip</h1>
 <%= form_for @trip do |f| %>
     <%= f.label :departure_date %>
@@ -7,4 +9,4 @@
     <%= mountain_id_field(@trip) %><br>
     <%= f.submit value='Submit'%>
   <% end %>
-  </div>
+</div>

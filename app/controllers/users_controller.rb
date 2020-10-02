@@ -20,7 +20,8 @@ class UsersController < ApplicationController
 
     def show
         @user = current_user
-        @trips = @user.trips.all.sort_by {|trip| trip.date}.reverse
+        trips = @user.trips.all.sort_by {|trip| trip.date}.reverse
+        @trips = trips[0..4]
         
     end
 

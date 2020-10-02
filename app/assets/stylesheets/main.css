@@ -39,6 +39,7 @@ body {
   .description h1 {
     color: rgb(0, 88, 129);
   }
+  
   .description p {
     color: black;
     font-size: 1.3rem;
@@ -120,3 +121,4 @@ body {
     font-size: 1.3rem;
     line-height: 1.5;
   }
+
