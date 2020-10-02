@@ -4,7 +4,9 @@ class ApplicationController < ActionController::Base
     helper_method :current_user, :require_login, :logged_in?
     
     def index
-
+        if logged_in?
+            redirect_to mountains_path
+        end
     end
 
     private
