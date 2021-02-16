@@ -2,6 +2,8 @@
 
 This Rails app allows users to log trips to the top ski mountains in the world, rate trails, and view details on each mountain.
 
+For a demo, visit: https://youtu.be/PNdpMH8NqO4
+
 ## Installation and Usage
 
 Fork and clone this repo. Run `bundle install` to install required gems. Run `rails db:migrate` to migrate tables, then run `rails db:seed` to seed the starting data. Then, run `rails s` and enter localport:3000 in your browser to get started. 
